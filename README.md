@@ -43,24 +43,25 @@ constantly updated as the guards move. The exit is indicated by a green field.
 - The game will automatically pop up a dialogue window when the game is over (the
 player has been spotted by the guards or has escaped). Also dialog windows are used to perform saving or loading (file names are given by the user) and a dialog window is
 displayed when exiting the game to see if the user is sure they want to exit the game.
-- The use cases are shown in Figure 1.
 
-## Figure 1: Use cases
+## Use cases
+
+![Use case diagram](./documentation/StealthGame_UseCaseDiagram.jpg)
 
 ## Planning
 
-### Programme structure (Figure 2)
+### Programme structure
 - The program is implemented in `MVVM` architecture, and accordingly `View`,
 `Model`, `ViewModel` and `Persistence` namespaces are implemented within
 the application. The environment of the program is implemented by the
 Application class (`App`), which instantiates the model, view model and view,
 provides communication and supervises data management.
 
-## Figure 2: Application package diagram
+## Application package diagram
 
 ![App package diagram](./documentation/StealthGame_PackageDiagram.jpg)
 
-## Persistence (Figure 3)
+## Persistence
 - Data management is responsible for storing information about the
 `StealthGame` board and ensuring that it is loaded/saved.
 - The `StealthGameTable` class provides a valid `StealthGame` table (i.e. it
@@ -80,11 +81,11 @@ can be loaded into the program at any time and the current status can be saved.
 - The first row of the file specifies the size of the table, the other rows and
 columns of the file store the values of the table as a "matrix" of letters.
 
-## Figure 3: Class diagram of the Persistence package
+## Class diagram of the Persistence package
 
 ![Persistence diagram](./documentation/StealthGame_PersistenceDiagram.png)
 
-## Model (Figure 4)
+## Model
 - The core of the model is implemented by the `StealthGameModel` class,
 which controls the board's activities, as well as other parameters of the game:
 `_detected` (whether the player has been detected) and `_exitReached`
@@ -104,11 +105,11 @@ interface that allows you to load (`LoadGameAsync`) and save
 type, and the table sizes for each difficulty are stored in the
 `StealthGameTable` class using read-only variables.
 
-## Figure 4: Class diagram of the Model package
+## Class diagram of the Model package
 
 ![Model diagram](./documentation/StealthGame_ModelDiagram.png)
 
-## Viewmodel (Figure 5)
+## Viewmodel
 - To implement the view model, we use a generic command
 (`DelegateCommand`) and an ancestor change indicator (`ViewModelBase`)
 class.
@@ -124,7 +125,7 @@ running of the game.
 stores the position and the type of each field. The fields are placed in a
 managed collection in the view model (`Fields`).
 
-## Figure 5: Class diagram of the ViewModel package
+## Class diagram of the ViewModel package
 
 ![ViewModel diagram](./documentation/StealthGame_ViewModelDiagram.png)
 
@@ -137,14 +138,14 @@ controlled through it.
 - File name prompting on load and save, and warning messages are displayed
 using built-in dialog boxes.
 
-## Environment (Figure 6)
+## Environment
 - The `App` class is responsible for the instantiation of each layer
 (`App_Startup`), the connection of the view model and the handling of events
 in the model, and thus the game, data management and view control.
 - The game also stores a timer (`_timer`) for the guards' steps, which can be set
 by the game's functions.
 
-## Figure 6: Control class diagram
+## Control class diagram
 
 ![App diagram](./documentation/StealthGame_AppDiagram.png)
 

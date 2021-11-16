@@ -1,0 +1,122 @@
+﻿<Window x:Class="StealthGame.View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Stealth Game" Width="800" Height="800">
+    <Window.InputBindings>
+        <KeyBinding 
+            Key="W"
+            Command="{Binding MovePlayerVertical}"
+            CommandParameter="{Binding RowUp}"
+        />
+        <KeyBinding 
+            Key="S"
+            Command="{Binding MovePlayerVertical}"
+            CommandParameter="{Binding RowDown}"
+        />
+        <KeyBinding 
+            Key="A"
+            Command="{Binding MovePlayerHorizontal}"
+            CommandParameter="{Binding ColLeft}"
+        />
+        <KeyBinding 
+            Key="D"
+            Command="{Binding MovePlayerHorizontal}"
+            CommandParameter="{Binding ColRight}"
+        />
+    </Window.InputBindings>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Menu Grid.Row="0">
+            <MenuItem Header="Options">
+                <MenuItem Header="New Game" Command="{Binding NewGameCommand}"/>
+                <MenuItem Header="Load Game" Command="{Binding LoadGameCommand}"/>
+                <MenuItem Header="Save Game" Command="{Binding SaveGameCommand}"/>
+                <MenuItem Header="Quit Game" Command="{Binding QuitGameCommand}"/>
+            </MenuItem>
+            <Separator/>
+            <MenuItem Header="Pause" Command="{Binding PauseCommand}" IsEnabled="{Binding EnablePause}"/>
+            <Separator/>
+            <MenuItem Header="Resume" Command="{Binding ResumeCommand}" IsEnabled="{Binding EnableResume}"/>
+            <Separator/>
+            <MenuItem Header="Help" Command="{Binding HelpCommand}"/>
+            <Separator/>
+            <MenuItem Header="Difficulty">
+                <MenuItem Header="Easy" IsCheckable="True" IsChecked="{Binding IsGameEasy}"/>
+                <MenuItem Header="Medium" IsCheckable="True" IsChecked="{Binding IsGameMedium}"/>
+                <MenuItem Header="Hard" IsCheckable="True" IsChecked="{Binding IsGameHard}"/>
+            </MenuItem>
+        </Menu>
+        <ItemsControl Grid.Row="1" ItemsSource="{Binding Fields}" Focusable="True">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Button Focusable="False" RenderTransformOrigin="0.5, 0.5">
+                        <Button.RenderTransform>
+                            <ScaleTransform ScaleX="1" ScaleY="1" />
+                        </Button.RenderTransform>
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding IsFloor}" Value="True">
+                                        <Setter Property="Background" Value="White" />
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding IsWall}" Value="True">
+                                        <Setter Property="Background" Value="Black" />
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding IsExit}" Value="True">
+                                        <Setter Property="Background" Value="Green" />
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding IsVision}" Value="True">
+                                        <Setter Property="Background" Value="LightBlue" />
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding IsVisionPlayer}" Value="True">
+                                        <Setter Property="Background" Value="LightBlue" />
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding IsGuard}" Value="True">
+                                        <Setter Property="Background">
+                                            <Setter.Value>
+                                                <ImageBrush ImageSource="/View/guard.png"/>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding IsPlayer}" Value="True">
+                                        <Setter Property="Background">
+                                            <Setter.Value>
+                                                <ImageBrush ImageSource="/View/player.png"/>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                        <Button.Triggers>
+                            <EventTrigger RoutedEvent="Button.Loaded">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0:00:02" From="0" To="1" Storyboard.TargetProperty="Opacity" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </Button.Triggers>
+                    </Button>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+            <ItemsControl.ItemContainerStyle>
+                <Style>
+                    <Setter Property="Grid.Row" Value="{Binding Row}"/>
+                    <Setter Property="Grid.Column" Value="{Binding Col}"/>
+                </Style>
+            </ItemsControl.ItemContainerStyle>
+        </ItemsControl>
+    </Grid>
+</Window>

@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="View\guard.png" />
+    <None Remove="View\player.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="View\guard.png" />
+    <Resource Include="View\player.png" />
+  </ItemGroup>
+
+</Project>

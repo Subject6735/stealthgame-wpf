@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31624.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StealthGame", "StealthGame\StealthGame.csproj", "{A5D78759-5656-45E1-AFD3-A9FD5BEFD2E8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StealthGameTest", "StealthGameTest\StealthGameTest.csproj", "{3B9FE292-A51C-47E1-8785-A15796CD03F1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "documentation", "documentation", "{F4B450F3-2683-4A48-8886-7EE7432AEA22}"
+	ProjectSection(SolutionItems) = preProject
+		StealthGame\documentation\StealthGame_AppDiagram.png = StealthGame\documentation\StealthGame_AppDiagram.png
+		StealthGame\documentation\StealthGame_ClassDiagram.png = StealthGame\documentation\StealthGame_ClassDiagram.png
+		StealthGame\documentation\StealthGame_ModelDiagram.png = StealthGame\documentation\StealthGame_ModelDiagram.png
+		StealthGame\documentation\StealthGame_PackageDiagram.jpg = StealthGame\documentation\StealthGame_PackageDiagram.jpg
+		StealthGame\documentation\StealthGame_PersistenceDiagram.png = StealthGame\documentation\StealthGame_PersistenceDiagram.png
+		StealthGame\documentation\StealthGame_ViewModelDiagram.png = StealthGame\documentation\StealthGame_ViewModelDiagram.png
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A5D78759-5656-45E1-AFD3-A9FD5BEFD2E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5D78759-5656-45E1-AFD3-A9FD5BEFD2E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5D78759-5656-45E1-AFD3-A9FD5BEFD2E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5D78759-5656-45E1-AFD3-A9FD5BEFD2E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B9FE292-A51C-47E1-8785-A15796CD03F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B9FE292-A51C-47E1-8785-A15796CD03F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B9FE292-A51C-47E1-8785-A15796CD03F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B9FE292-A51C-47E1-8785-A15796CD03F1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {131BC7A9-F43C-410D-ACC4-B941B0F50B75}
+	EndGlobalSection
+EndGlobal
